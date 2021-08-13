@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hindistana Yolculuk</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/set1.css" />
+  <link href="css/overwrite.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+    
+    
+
+    
+<meta charset="utf-8"> 
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+ 
+var app = angular
+.module("persModul", [])
+.controller("persController", function ($scope) {
+ 
+var personeller=[
+    
+{ "isim": "Yeni Delhi ","mekan": "Kızılkale" },
+{ "isim": "Jaipur","mekan": "Jal Mahal" },
+{ "isim": "Jaipur","mekan": "Şehir Sarayaı" },
+{ "isim": "Agra","mekan": "Tac Mahal" },
+{ "isim": "Udaipur","mekan": "Jag Mandir" },
+{ "isim": "Udaipur","mekan": "Udaipur City Palace" },
+{ "isim": "Munnar","mekan": "Floriculture Centre" },
+{ "isim": "Munnar","mekan": "Echo Point" },
+{ "isim": "Mumbai","mekan": "Kala Ghoda" },
+{ "isim": "Mumbai","mekan": "Malabar Tepesi "},
+{ "isim": "Varanasi","mekan": "Ganj Nehri" },
+{ "isim": "Khajuraho","mekan": "Jain Tapınağı" },
+
+
+];
+$scope.personeller = personeller;
+ 
+$scope.arama = function (item) {
+if ($scope.araMetin == undefined) {
+return true;
+}
+else {
+if (item.isim.toLowerCase()
+.indexOf($scope.araMetin.toLowerCase()) != -1 ||
+item["mekan"].toLowerCase()
+.indexOf($scope.araMetin.toLowerCase()) != -1) {
+return true;
+}
+}
+ 
+return false;
+};
+ 
+});
+ 
+</script>
+</head>
+
+
+ 
+    
+    
+
+
+<body ng-app="persModul">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+        <a class="navbar-brand" href="index.html"><span><b>HİNDİSTAN</b></span></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <div class="menu">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" ><a href="index.html">Ana Sayfa</a></li>
+            <li role="presentation"><a href="services.html">Mekanlar</a></li>
+              <li role="presentation"class="active"><a href="listeleme.html">Listeleme</a></li>
+            <li role="presentation"><a href="blog.html">Genel Kültür ve Festivaller</a></li>
+            <li role="presentation"><a href="portfolio.html">Yemek Kültürü</a></li>
+            <li role="presentation"><a href="contact.html">İletişim</a></li>
+               <li role="presentation"><a href="kullan%C4%B1c%C4%B1girisi.html">Kullanıcı Girişi</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <br><br><br><br><br><br><br><br>
+    
+    <div ng-controller="persController">
+<div align="center">
+<input type="text" ng-model="araMetin" placeholder="İsim Girin">
+</div>
+ <div align="center">
+<table border=1>
+<thead>
+<tr>
+<th>MEKAN</th>
+<th>BULUNDUĞU İL</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="personel in personeller |filter:arama">
+<td> {{ personel.isim }} </td>
+<td> {{ personel.mekan }} </td>
+
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+   
+</body>
+    
+    
+    
+
+    
+   
+
+ 
+</html>
+ 
+    
+    
+    
+    
